@@ -17,8 +17,11 @@ using System.Threading.Tasks;
 namespace AutoMarket.Class
 {
     public class Sucursal
-    { //Propiedades de la clase Sucursal
-        public int IdSucursal{ get; set; }
+    {
+      private static int idcontador = 1; //ID automatico
+
+    //Propiedades de la clase Sucursal
+        public int IdSucursal{ get; private set; } 
          
         public string Nombre { get; set; }
         public string Direccion { get; set; }
@@ -29,14 +32,21 @@ namespace AutoMarket.Class
         //Constructor de la clase Sucursal para inicializar las propiedades
         public Sucursal(int idSucursal, string nombre, string direccion, string telefono, Vendedor vendedorEncargado, bool activo)
         {
-           IdSucursal = idSucursal;         
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre de la sucursal es obligatorio.");
+
+            IdSucursal = idSucursal++;         
            Nombre = nombre;
            Direccion = direccion;
            Telefono = telefono;
            VendedorEncargado = vendedorEncargado;
            Activo = activo;
         }
-        
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
 
     }
 

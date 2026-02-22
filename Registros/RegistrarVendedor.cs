@@ -9,6 +9,8 @@ Estudiante: Angie Angulo Chacón
 Fecha:22/02/2026
 */
 using AutoMarket.Class;
+using AutoMarket.Datos;
+using AutoMarket.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AutoMarket.Datos;
 
 namespace AutoMarket
 {
@@ -28,6 +29,7 @@ namespace AutoMarket
         public RegistrarVendedor()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
         }
         public void RegistrarVendedor_Load(object sender, EventArgs e)
         { // Configura el DataGridView para mostrar los vendedores registrados
@@ -55,7 +57,7 @@ namespace AutoMarket
         private void btn_atras_Click(object sender, EventArgs e)
         {
             // Llamo a la ventana de registro
-            Registros Registros = new Registros();
+            MenuRegistros Registros = new MenuRegistros();
             Registros.Show();
             this.Close(); //Cierra la ventana actual
         }
@@ -172,6 +174,11 @@ namespace AutoMarket
             dateTime_nacimiento.Value = DateTime.Now;
             dateTime_Ingreso.Value = DateTime.Now;
             txt_idvendedor.Focus(); // Coloca el cursor en el campo ID para facilitar el ingreso del siguiente vendedor
+        }
+
+        private void RegistrarVendedor_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

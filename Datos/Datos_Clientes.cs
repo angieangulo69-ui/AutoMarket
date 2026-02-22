@@ -2,7 +2,8 @@
 Universidad:UNED
 I Cuatrimestre
 Proyecto: AutoMarket
-Descripción: Clase estática que almacena un arreglo de clientes y un contador para llevar el número de clientes almacenados.
+Descripción: Clase estática que almacena un arreglo de clientes y 
+un contador para llevar el número de clientes almacenados.
 Estudiante: Angie Angulo Chacón 
 Fecha:22/02/2026
 */

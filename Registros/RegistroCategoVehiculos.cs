@@ -11,6 +11,7 @@ validaciones para evitar registros duplicados y se limita el n√∫mero de categor√
  */
 using AutoMarket.Class;
 using AutoMarket.Datos;
+using AutoMarket.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,14 +31,15 @@ namespace AutoMarket
         public RegistroCategoVehiculos()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
         }
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
             //Llamo a la ventana de registro
-            Registros Registros = new Registros();
+            MenuRegistros Registros = new MenuRegistros();
             Registros.Show();
-            this.Close(); //Cierra la ventana actual
+            Close(); //Cierra la ventana actual
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)

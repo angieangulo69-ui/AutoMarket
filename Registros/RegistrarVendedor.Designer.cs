@@ -44,14 +44,14 @@
             this.btn_atras = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.Datos = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt_idvendedor = new System.Windows.Forms.TextBox();
-            this.txt_nombre = new System.Windows.Forms.TextBox();
-            this.mtxt_id = new System.Windows.Forms.MaskedTextBox();
             this.mtxt_telefono = new System.Windows.Forms.MaskedTextBox();
+            this.mtxt_id = new System.Windows.Forms.MaskedTextBox();
+            this.txt_nombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_idvendedor = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRegistroVendedor)).BeginInit();
             this.Datos.SuspendLayout();
             this.SuspendLayout();
@@ -217,29 +217,28 @@
             this.Datos.TabStop = false;
             this.Datos.Text = "Datos";
             // 
-            // label2
+            // mtxt_telefono
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 29);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Identificación:";
+            this.mtxt_telefono.Location = new System.Drawing.Point(187, 84);
+            this.mtxt_telefono.Mask = "0000-0000";
+            this.mtxt_telefono.Name = "mtxt_telefono";
+            this.mtxt_telefono.Size = new System.Drawing.Size(194, 22);
+            this.mtxt_telefono.TabIndex = 21;
             // 
-            // label3
+            // mtxt_id
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(416, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(234, 29);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Nombre Completo:";
+            this.mtxt_id.Location = new System.Drawing.Point(187, 54);
+            this.mtxt_id.Mask = "0-0000-0000";
+            this.mtxt_id.Name = "mtxt_id";
+            this.mtxt_id.Size = new System.Drawing.Size(194, 22);
+            this.mtxt_id.TabIndex = 20;
+            // 
+            // txt_nombre
+            // 
+            this.txt_nombre.Location = new System.Drawing.Point(656, 25);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(233, 22);
+            this.txt_nombre.TabIndex = 18;
             // 
             // label1
             // 
@@ -253,6 +252,25 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Id Vendedor:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(416, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(234, 29);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Nombre Completo:";
+            // 
+            // txt_idvendedor
+            // 
+            this.txt_idvendedor.Location = new System.Drawing.Point(187, 18);
+            this.txt_idvendedor.Name = "txt_idvendedor";
+            this.txt_idvendedor.Size = new System.Drawing.Size(194, 22);
+            this.txt_idvendedor.TabIndex = 15;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -265,35 +283,17 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Teléfono:";
             // 
-            // txt_idvendedor
+            // label2
             // 
-            this.txt_idvendedor.Location = new System.Drawing.Point(187, 18);
-            this.txt_idvendedor.Name = "txt_idvendedor";
-            this.txt_idvendedor.Size = new System.Drawing.Size(194, 22);
-            this.txt_idvendedor.TabIndex = 15;
-            // 
-            // txt_nombre
-            // 
-            this.txt_nombre.Location = new System.Drawing.Point(656, 25);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(233, 22);
-            this.txt_nombre.TabIndex = 18;
-            // 
-            // mtxt_id
-            // 
-            this.mtxt_id.Location = new System.Drawing.Point(187, 54);
-            this.mtxt_id.Mask = "0-0000-0000";
-            this.mtxt_id.Name = "mtxt_id";
-            this.mtxt_id.Size = new System.Drawing.Size(194, 22);
-            this.mtxt_id.TabIndex = 20;
-            // 
-            // mtxt_telefono
-            // 
-            this.mtxt_telefono.Location = new System.Drawing.Point(187, 84);
-            this.mtxt_telefono.Mask = "0000-0000";
-            this.mtxt_telefono.Name = "mtxt_telefono";
-            this.mtxt_telefono.Size = new System.Drawing.Size(194, 22);
-            this.mtxt_telefono.TabIndex = 21;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 29);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Identificación:";
             // 
             // RegistrarVendedor
             // 
@@ -308,6 +308,7 @@
             this.Controls.Add(this.label4);
             this.Name = "RegistrarVendedor";
             this.Text = "RegistrarVendedor";
+            this.Load += new System.EventHandler(this.RegistrarVendedor_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRegistroVendedor)).EndInit();
             this.Datos.ResumeLayout(false);
             this.Datos.PerformLayout();

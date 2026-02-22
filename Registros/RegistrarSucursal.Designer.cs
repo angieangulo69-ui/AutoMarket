@@ -109,6 +109,7 @@
             // 
             // comboBox_encargado
             // 
+            this.comboBox_encargado.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_encargado.FormattingEnabled = true;
             this.comboBox_encargado.Location = new System.Drawing.Point(581, 75);
             this.comboBox_encargado.Name = "comboBox_encargado";
@@ -129,6 +130,7 @@
             // 
             // mtb_telefono
             // 
+            this.mtb_telefono.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtb_telefono.Location = new System.Drawing.Point(585, 27);
             this.mtb_telefono.Mask = "0000-0000";
             this.mtb_telefono.Name = "mtb_telefono";
@@ -137,6 +139,7 @@
             // 
             // txt_direccion
             // 
+            this.txt_direccion.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_direccion.Location = new System.Drawing.Point(198, 119);
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(192, 25);
@@ -144,13 +147,15 @@
             // 
             // txt_nombre
             // 
+            this.txt_nombre.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nombre.Location = new System.Drawing.Point(198, 80);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(188, 25);
+            this.txt_nombre.Size = new System.Drawing.Size(200, 28);
             this.txt_nombre.TabIndex = 19;
             // 
             // txt_idsucursal
             // 
+            this.txt_idsucursal.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_idsucursal.Location = new System.Drawing.Point(198, 33);
             this.txt_idsucursal.Name = "txt_idsucursal";
             this.txt_idsucursal.Size = new System.Drawing.Size(188, 25);
@@ -186,7 +191,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(425, 75);
+            this.label5.Location = new System.Drawing.Point(425, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(153, 29);
             this.label5.TabIndex = 15;
@@ -232,6 +237,7 @@
             // DataGried_Sucursales
             // 
             this.DataGried_Sucursales.AllowUserToAddRows = false;
+            this.DataGried_Sucursales.BackgroundColor = System.Drawing.Color.LightBlue;
             this.DataGried_Sucursales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGried_Sucursales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColID,

@@ -11,6 +11,8 @@ Estudiante: Angie Angulo Chacón
 Fecha:22/02/2026
 */
 using AutoMarket.Class;
+using AutoMarket.Datos;
+using AutoMarket.Registros;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AutoMarket.Datos;
 
 namespace AutoMarket
 {
@@ -31,6 +32,7 @@ namespace AutoMarket
         public RegistroCliente()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
         }
         
         private void label2_Click(object sender, EventArgs e)
@@ -146,7 +148,7 @@ namespace AutoMarket
         private void btn_atras_Click(object sender, EventArgs e)
         {
             // Llamo a la ventana de registro
-            Registros Registros = new Registros();
+            MenuRegistros Registros = new MenuRegistros();
             Registros.Show();
             this.Close(); //Cierra la ventana actual
         }

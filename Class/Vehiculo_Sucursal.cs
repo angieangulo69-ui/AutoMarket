@@ -2,7 +2,11 @@
 Universidad:UNED
 I Cuatrimestre
 Proyecto: AutoMarket
-Descripción:
+Descripción:Clase que representa la relación entre vehículos y 
+sucursales, indicando la cantidad de cada vehículo disponible en 
+cada sucursal. Esta clase es fundamental para gestionar el inventario 
+de vehículos en las diferentes sucursales de AutoMarket, permitiendo una mejor 
+organización y control de los recursos disponibles.
 Estudiante: Angie Angulo Chacón 
 Fecha:22/02/2026
 */

@@ -1,4 +1,14 @@
-﻿using System;
+﻿/* 
+ *UNED - Ingeniería en Informatica 
+ *Estudiante: Angie Angulo Chacon 
+ * Fecha: 22/02/2026
+ * Descripción: AutoMarket, que permite a los usuarios acceder a las 
+ * funciones de registro y consulta de vehículos.
+ * Estudiante: Angie Angulo Chacón 
+ * Fecha:22/02/2026
+ */
+using AutoMarket.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,14 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/* 
- *UNED - Ingeniería en Informatica 
- *Estudiante: Angie Angulo Chacon 
- * Fecha: 22/02/2026
- * Descripción: AutoMarket, que permite a los usuarios acceder a las 
- * funciones de registro y consulta de vehículos.
- 
- */
+
 namespace AutoMarket
 {
     public partial class Form1 : Form
@@ -23,6 +26,7 @@ namespace AutoMarket
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +47,7 @@ namespace AutoMarket
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
             //Llamo a la ventana de registro
-            Registros registrosForm = new Registros();
+            MenuRegistros registrosForm = new MenuRegistros();
             registrosForm.Show(); // Asegúrate de que Registros hereda de Form
         }
 
@@ -57,6 +61,11 @@ namespace AutoMarket
             //Llamo a la ventana de consultas
            Consulta Consultas = new Consulta();
             Consultas.Show();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

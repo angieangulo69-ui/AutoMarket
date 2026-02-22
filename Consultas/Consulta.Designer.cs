@@ -204,6 +204,7 @@
             this.Controls.Add(this.btn_cateVehiculo);
             this.Name = "Consulta";
             this.Text = "Consultas";
+            this.Load += new System.EventHandler(this.Consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

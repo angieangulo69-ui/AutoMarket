@@ -10,6 +10,8 @@ Estudiante: Angie Angulo Chacón
 Fecha:22/02/2026
 */
 using AutoMarket.Class;
+using AutoMarket.Datos; // Asegúrate de incluir el espacio de nombres correcto para acceder a Datos_Vehiculo y RegistroCategoVehiculos    
+using AutoMarket.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AutoMarket.Datos; // Asegúrate de incluir el espacio de nombres correcto para acceder a Datos_Vehiculo y RegistroCategoVehiculos    
 
 
 namespace AutoMarket
@@ -31,6 +32,8 @@ namespace AutoMarket
         public RegistroVehiculo()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
+
         }
 
         private void RegistroVehiculo_Load(object sender, EventArgs e)
@@ -173,7 +176,7 @@ namespace AutoMarket
         private void btn_atras_Click(object sender, EventArgs e)
         {
             //Llamo a la ventana de registro
-            Registros Registros = new Registros();
+            MenuRegistros Registros = new MenuRegistros();
             Registros.Show();
             this.Close(); //Cierra la ventana actual
         }

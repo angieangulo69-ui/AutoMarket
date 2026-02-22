@@ -41,6 +41,7 @@
             this.txt_idcliente = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mtxt_identificacion = new System.Windows.Forms.MaskedTextBox();
             this.check_activo = new System.Windows.Forms.CheckBox();
             this.btn_atras = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.mtxt_identificacion = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -190,6 +190,14 @@
             this.panel1.Size = new System.Drawing.Size(908, 177);
             this.panel1.TabIndex = 16;
             // 
+            // mtxt_identificacion
+            // 
+            this.mtxt_identificacion.Location = new System.Drawing.Point(245, 73);
+            this.mtxt_identificacion.Mask = "0-0000-0000";
+            this.mtxt_identificacion.Name = "mtxt_identificacion";
+            this.mtxt_identificacion.Size = new System.Drawing.Size(175, 22);
+            this.mtxt_identificacion.TabIndex = 16;
+            // 
             // check_activo
             // 
             this.check_activo.AutoSize = true;
@@ -231,6 +239,7 @@
             // DGV_clientes
             // 
             this.DGV_clientes.AllowUserToAddRows = false;
+            this.DGV_clientes.BackgroundColor = System.Drawing.Color.PaleTurquoise;
             this.DGV_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColID,
@@ -307,14 +316,6 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // mtxt_identificacion
-            // 
-            this.mtxt_identificacion.Location = new System.Drawing.Point(245, 73);
-            this.mtxt_identificacion.Mask = "0-0000-0000";
-            this.mtxt_identificacion.Name = "mtxt_identificacion";
-            this.mtxt_identificacion.Size = new System.Drawing.Size(175, 22);
-            this.mtxt_identificacion.TabIndex = 16;
             // 
             // RegistroCliente
             // 

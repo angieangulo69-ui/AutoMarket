@@ -28,6 +28,7 @@ namespace AutoMarket
         public Consulta()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace AutoMarket
 
         private void btn_sucursal_Click(object sender, EventArgs e)
         { // Llamo a la ventana de consulta de sucursales
-            ConsultaSucursales Consulta_Sucursales = new ConsultaSucursales();
+            sucursalesRegistradas Consulta_Sucursales = new sucursalesRegistradas();
             Consulta_Sucursales.Show();
             this.Close(); //Cierra la ventana actual
 
@@ -86,9 +87,14 @@ namespace AutoMarket
         private void btn_vehiculosSucursal_Click(object sender, EventArgs e)
         {
             // Llamo a la ventana de consulta de sucursales
-            ConsultaVehiculoSucursal Consulta_Vehiculo_Sucursal = new ConsultaVehiculoSucursal();
+            Asociar_VehiculoSucursal Consulta_Vehiculo_Sucursal = new Asociar_VehiculoSucursal();
             Consulta_Vehiculo_Sucursal.Show();
             this.Close(); //Cierra la ventana actual
+        }
+
+        private void Consulta_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

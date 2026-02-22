@@ -82,11 +82,17 @@
     <Compile Include="Consultas\ConsultaVehiculos.Designer.cs">
       <DependentUpon>ConsultaVehiculos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\ConsultaVehiculoSucursal.cs">
+    <Compile Include="Consultas\Consulta_VehiculoSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\ConsultaVehiculoSucursal.Designer.cs">
-      <DependentUpon>ConsultaVehiculoSucursal.cs</DependentUpon>
+    <Compile Include="Consultas\Consulta_VehiculoSucursal.Designer.cs">
+      <DependentUpon>Consulta_VehiculoSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Asociar_VehiculoSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Asociar_VehiculoSucursal.Designer.cs">
+      <DependentUpon>Asociar_VehiculoSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaVendedores.cs">
       <SubType>Form</SubType>
@@ -145,14 +151,29 @@
       <DependentUpon>RegistroVehiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Vehiculo.cs" />
-    <Compile Include="Registros\VehiculoSucursal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registros\VehiculoSucursal.Designer.cs">
-      <DependentUpon>VehiculoSucursal.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Consultas\Consulta.resx">
       <DependentUpon>Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaCateVehiculo.resx">
+      <DependentUpon>ConsultaCateVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaClientes.resx">
+      <DependentUpon>ConsultaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaSucursales.resx">
+      <DependentUpon>ConsultaSucursales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaVehiculos.resx">
+      <DependentUpon>ConsultaVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\Consulta_VehiculoSucursal.resx">
+      <DependentUpon>Consulta_VehiculoSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Asociar_VehiculoSucursal.resx">
+      <DependentUpon>Asociar_VehiculoSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaVendedores.resx">
+      <DependentUpon>ConsultaVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

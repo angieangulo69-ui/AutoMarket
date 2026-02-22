@@ -31,7 +31,7 @@ namespace AutoMarket.Class
         // Sobrescribe el método ToString para mostrar el nombre completo del vendedor junto con su rol
         public override string ToString()
         {
-            return NombreCompleto + " - Vendedor";
+            return NombreCompleto +  " - Vendedor";
         }
         public override string ObtenerTipo()
         {

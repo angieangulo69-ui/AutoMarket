@@ -70,10 +70,11 @@
             this.panel2.Controls.Add(this.btn_Consultar);
             this.panel2.Controls.Add(this.btn_Registrar);
             this.panel2.Location = new System.Drawing.Point(16, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(975, 512);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox3
             // 
@@ -81,7 +82,7 @@
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(47, 422);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(59, 55);
             this.pictureBox3.TabIndex = 5;
@@ -93,7 +94,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(49, 244);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(75, 71);
             this.pictureBox2.TabIndex = 4;
@@ -105,7 +106,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(47, 144);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(77, 70);
             this.pictureBox1.TabIndex = 3;
@@ -118,7 +119,7 @@
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_salir.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_salir.Location = new System.Drawing.Point(113, 436);
-            this.btn_salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_salir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(84, 42);
             this.btn_salir.TabIndex = 2;
@@ -133,7 +134,7 @@
             this.btn_Consultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Consultar.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultar.Location = new System.Drawing.Point(164, 257);
-            this.btn_Consultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Consultar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Consultar.Name = "btn_Consultar";
             this.btn_Consultar.Size = new System.Drawing.Size(152, 42);
             this.btn_Consultar.TabIndex = 1;
@@ -148,7 +149,7 @@
             this.btn_Registrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Registrar.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Registrar.Location = new System.Drawing.Point(164, 172);
-            this.btn_Registrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Registrar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(152, 42);
             this.btn_Registrar.TabIndex = 0;
@@ -163,7 +164,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(991, 554);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Menu_AutoMarket";
             this.Load += new System.EventHandler(this.Form1_Load);
