@@ -73,7 +73,7 @@ namespace AutoMarket.Consultas
             comboBoxSucursal.DataSource = lista;
             comboBoxSucursal.DisplayMember = "Nombre";
             comboBoxSucursal.ValueMember = "Id";
-            comboBoxSucursal.SelectedIndex = -1;
+            comboBoxSucursal.SelectedIndex = -1; // Deja el ComboBox sin selección al cargar la ventana
         }
 
 
@@ -109,6 +109,7 @@ namespace AutoMarket.Consultas
                 }
             }
         }
+        // Método para cargar todos los vehículos 
         private void CargarGrid()
         {
             dataGridViewSucursal_Vehiculo.Rows.Clear();

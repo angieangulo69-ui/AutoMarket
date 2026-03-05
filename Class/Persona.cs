@@ -16,19 +16,26 @@ using System.Threading.Tasks;
 namespace AutoMarket.Class
 {
    public class Persona
-    { //Propiedades de la clase Persona
-        public int Id { get; set; }
+    {
+        private static int contadorId = 1; // Contador estático para generar IDs únicos automáticamente 
+        //Propiedades de la clase Persona
+        public int Id { get; private set; } // get porque puuedo leer desde cualquier parte del programa, pero set es
+                                            // privado porque solo se puede asignar dentro de la clase Persona
         public string Identificacion { get; set; }
         public string NombreCompleto { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        
         //Constructor de la clase Persona para inicializar las propiedades
-        public Persona(int id, string identificacion, string nombre, DateTime fechaNacimiento)
-        {
-            Id = id;
+        public Persona( string identificacion, string nombre)
+        {    //valida si el campo de identificación está vacío o solo contiene espacios en blanco
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre es obligatorio.");
+
+            Id = contadorId++;
             Identificacion = identificacion;
             NombreCompleto = nombre;
-            FechaNacimiento = fechaNacimiento;
+           
         }
+
         //Sobrescribe el método ToString para mostrar el nombre completo de la persona
         public override string ToString()
         {
@@ -37,6 +44,10 @@ namespace AutoMarket.Class
         public virtual string ObtenerTipo()
         {
             return "Persona";
+        }
+        public static int ObtenerSiguienteId()
+        {
+            return contadorId;
         }
     }
 }

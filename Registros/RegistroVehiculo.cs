@@ -35,10 +35,8 @@ namespace AutoMarket
             this.StartPosition = FormStartPosition.CenterScreen; // Centrar la ventana al abrir
 
         }
-
-        private void RegistroVehiculo_Load(object sender, EventArgs e)
-        {
-          
+        private void configurarGried ()
+            {
             // Ajuiste del GridView
             DGV_vehiculos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_vehiculos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -46,6 +44,13 @@ namespace AutoMarket
             DGV_vehiculos.ReadOnly = true;
             // Evitar que el usuario agregue filas directamente en el DataGridView
             DGV_vehiculos.AllowUserToAddRows = false;
+
+            }
+
+        private void RegistroVehiculo_Load(object sender, EventArgs e)
+        {
+            txt_idVehiculo.ReadOnly = true;
+            txt_idVehiculo.Text = Vehiculo.ObtenerSiguienteId().ToString();
 
             // Cargar categorías registradas
             for (int i = 0; i < Datos_Categorias.contador; i++)
@@ -69,12 +74,10 @@ namespace AutoMarket
         {
             try
             {
-                // Validar campos vacíos
-                if (txt_idVehiculo.Text == "" ||
-                    txt_marca.Text == "" ||
-                    txt_modelo.Text == "" ||
-                    txt_anio.Text == "" ||
-                    txt_precio.Text == "" ||
+                if (string.IsNullOrWhiteSpace(txt_marca.Text) ||
+                    string.IsNullOrWhiteSpace(txt_modelo.Text) ||
+                    string.IsNullOrWhiteSpace(txt_anio.Text) ||
+                    string.IsNullOrWhiteSpace(txt_precio.Text) ||
                     comBox_categoria.SelectedIndex == -1 ||
                     combox_estado.SelectedIndex == -1)
                 {
@@ -82,51 +85,41 @@ namespace AutoMarket
                     return;
                 }
 
-                if (Datos_Vehiculo.contadorVehiculos >= 50)
-                {
-                    MessageBox.Show("No se pueden registrar más vehículos.");
-                    return;
-                }
-                //Toma datos ingresados
-                int id = int.Parse(txt_idVehiculo.Text);
-                string marca = txt_marca.Text;
-                string modelo = txt_modelo.Text;
                 int anio = int.Parse(txt_anio.Text);
                 decimal precio = decimal.Parse(txt_precio.Text);
 
-                // 🔹 Validar año
                 if (anio < 1900 || anio > DateTime.Now.Year)
                 {
                     MessageBox.Show("Ingrese un año válido.");
                     return;
                 }
 
-                // 🔹 Validar precio positivo
                 if (precio <= 0)
                 {
                     MessageBox.Show("El precio debe ser mayor a 0.");
                     return;
                 }
 
+                string marca = txt_marca.Text;
+                string modelo = txt_modelo.Text;
 
-                CategoriaVehiculo categoria = (CategoriaVehiculo)comBox_categoria.SelectedItem;
+                CategoriaVehiculo categoria =
+                    (CategoriaVehiculo)comBox_categoria.SelectedItem;
+
                 char estado = combox_estado.Text == "Nuevo" ? 'N' : 'U';
 
-                // Validar ID único
-                for (int i = 0; i < Datos_Vehiculo.contadorVehiculos; i++)
+                Vehiculo nuevo = new Vehiculo( marca,modelo, anio,precio, categoria, estado );
+
+                if (!Datos_Vehiculo.Agregar(nuevo))
                 {
-                    if (Datos_Vehiculo.vehiculos[i].IdVehiculo == id)
-                    {
-                        MessageBox.Show("El ID ya existe.");
-                        return;
-                    }
+                    MessageBox.Show("No se pueden registrar más vehículos.");
+                    return;
                 }
-                // Crear nuevo vehículo y agregarlo al arreglo
-                Datos_Vehiculo.vehiculos[Datos_Vehiculo.contadorVehiculos] = new Vehiculo(id, marca, modelo, anio, precio, categoria, estado);
-                Datos_Vehiculo.contadorVehiculos++;
 
                 CargarGrid();
                 LimpiarCampos();
+
+                txt_idVehiculo.Text = Vehiculo.ObtenerSiguienteId().ToString();
 
                 MessageBox.Show("Vehículo registrado correctamente.");
             }
@@ -135,23 +128,26 @@ namespace AutoMarket
                 MessageBox.Show(ex.Message);
             }
         }
+        
 
         private void CargarGrid()
         {
             DGV_vehiculos.Rows.Clear();
 
-            for (int i = 0; i < Datos_Vehiculo.contadorVehiculos; i++)
+            for (int i = 0; i < Datos_Vehiculo.TotalRegistros(); i++)
             {
-                string estadoTexto = Datos_Vehiculo.vehiculos[i].Estado == 'N' ? "Nuevo" : "Usado";
-                // Agrega una nueva fila al DataGridView con los datos del vehículo
+                Vehiculo v = Datos_Vehiculo.Obtener(i);
+
+                string estadoTexto = v.Estado == 'N' ? "Nuevo" : "Usado";
+
                 DGV_vehiculos.Rows.Add(
-                    Datos_Vehiculo.vehiculos[i].IdVehiculo,
-                    Datos_Vehiculo.vehiculos[i].Marca,
-                    Datos_Vehiculo.vehiculos[i].Modelo,
-                    Datos_Vehiculo.vehiculos[i].Anio,
-                    Datos_Vehiculo.vehiculos[i].Precio.ToString("C",
+                    v.IdVehiculo,
+                    v.Marca,
+                    v.Modelo,
+                    v.Anio,
+                    v.Precio.ToString("C",
                     new System.Globalization.CultureInfo("es-CR")),
-                    Datos_Vehiculo.vehiculos[i].Categoria.NombreCategoria,
+                    v.Categoria.NombreCategoria,
                     estadoTexto
                 );
             }

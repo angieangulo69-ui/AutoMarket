@@ -22,12 +22,14 @@ namespace AutoMarket.Class
     {    //Propiedades de la clase Cliente, heredando de Persona                 
         public bool Activo { get; set; }
         public DateTime FechaRegistro { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+
         //Constructor de la clase Cliente, llamando al constructor de la clase
         //base Persona para inicializar las propiedades heredadas
-        public Cliente(int id, string identificacion, string nombre,
-                      DateTime fechaNacimiento, DateTime fechaRegistro, bool activo)
-           : base(id, identificacion, nombre, fechaNacimiento)
+        public Cliente(string identificacion, string nombre,DateTime fechaNacimiento, DateTime fechaRegistro, bool activo)
+            :base(identificacion, nombre)
         {
+            FechaNacimiento = fechaNacimiento;
             FechaRegistro = fechaRegistro;
             Activo = activo;
         }

@@ -48,58 +48,47 @@ namespace AutoMarket
         {
             try
             {
-                if (Datos_Clientes.contadorClientes >= 5)
-                {
-                    MessageBox.Show("Solo se permiten 5 clientes.");
-                    return;
-                }
-                // Validar campos vacíos
-                if (txt_idcliente.Text == "" ||
-                    mtxt_identificacion.Text == "" ||
-                    txt_nombre.Text == "")
+                // Validar campos
+                if (string.IsNullOrWhiteSpace(mtxt_identificacion.Text) ||
+                    string.IsNullOrWhiteSpace(txt_nombre.Text))
                 {
                     MessageBox.Show("Debe completar todos los campos.");
                     return;
                 }
-                //Toma los datos registrados por el usuario y los asigna a variables
-                int id = int.Parse(txt_idcliente.Text);
-                string identificacion = mtxt_identificacion.Text;
-                string nombre = txt_nombre.Text;
+
                 DateTime fechaNacimiento = dateTime_nacimiento.Value;
-                // Validar fecha de nacimiento
+
                 if (fechaNacimiento > DateTime.Now)
                 {
                     MessageBox.Show("La fecha de nacimiento no es válida.");
                     return;
                 }
+
+                int edad = CalcularEdad(fechaNacimiento);
+
+                if (edad < 18)
+                {
+                    MessageBox.Show("El cliente debe ser mayor de edad (18 años o más).");
+                    return;
+                }
+
+                string identificacion = mtxt_identificacion.Text;
+                string nombre = txt_nombre.Text;
                 DateTime fechaRegistro = dateTime_registro.Value;
                 bool activo = check_activo.Checked;
 
-                // Validar ID único
-                for (int i = 0; i < Datos_Clientes.contadorClientes; i++)
-                {
-                    if (Datos_Clientes.clientes[i].Id == id)
-                    {
-                        MessageBox.Show("El ID ya existe.");
-                        return;
-                    }
+                Cliente nuevo = new Cliente( identificacion,nombre,fechaNacimiento,fechaRegistro,activo );
 
-                    if (Datos_Clientes.clientes[i].Identificacion == identificacion)
-                    {
-                        MessageBox.Show("La identificación ya existe.");
-                        return;
-                    }
+                if (!Datos_Clientes.Agregar(nuevo))
+                {
+                    MessageBox.Show("No se puede agregar el cliente. Puede estar repetido o se alcanzó el límite de 5.");
+                    return;
                 }
-                // Crea un nuevo cliente y lo agrega al arreglo
-                Datos_Clientes.clientes[Datos_Clientes.contadorClientes] = new Cliente(
-                    id, identificacion, nombre,
-                    fechaNacimiento, fechaRegistro, activo);
-                
-                // Incrementa el contador de clientes
-                Datos_Clientes.contadorClientes++;
 
                 CargarGrid();
                 LimpiarCampos();
+
+                txt_idcliente.Text = Persona.ObtenerSiguienteId().ToString();
 
                 MessageBox.Show("Cliente registrado correctamente.");
             }
@@ -111,23 +100,35 @@ namespace AutoMarket
         private void CargarGrid()
         {
             DGV_clientes.Rows.Clear();
-            // Carga los clientes registrados en el DataGridView
-            for (int i = 0; i < Datos_Clientes.contadorClientes; i++)
+
+            for (int i = 0; i < Datos_Clientes.TotalRegistros(); i++)
             {
+                Cliente c = Datos_Clientes.Obtener(i);
+
                 DGV_clientes.Rows.Add(
-                    Datos_Clientes.clientes[i].Id,
-                    Datos_Clientes.clientes[i].Identificacion,
-                    Datos_Clientes.clientes[i].NombreCompleto,
-                    Datos_Clientes.clientes[i].FechaNacimiento.ToShortDateString(),
-                    Datos_Clientes.clientes[i].FechaRegistro.ToShortDateString(),
-                    Datos_Clientes.clientes[i].Activo ? "Sí" : "No"
+                    c.Id,
+                    c.Identificacion,
+                    c.NombreCompleto,
+                    c.FechaNacimiento.ToShortDateString(),
+                    c.FechaRegistro.ToShortDateString(),
+                    c.Activo ? "Sí" : "No"
                 );
             }
         }
+        private int CalcularEdad(DateTime fechaNacimiento)
+        {
+            int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+            if (DateTime.Now < fechaNacimiento.AddYears(edad))
+                edad--;
+
+            return edad;
+        }
+
         private void LimpiarCampos()
         {
             // Limpia los campos de entrada después de guardar un cliente
-            txt_idcliente.Clear();
+           
             mtxt_identificacion.Clear();
             txt_nombre.Clear();
             dateTime_nacimiento.Value = DateTime.Now;
@@ -153,15 +154,22 @@ namespace AutoMarket
             this.Close(); //Cierra la ventana actual
         }
 
-        private void RegistroCliente_Load_1(object sender, EventArgs e)
-        { // Configura el DataGridView para mostrar los clientes de manera ordenada
+        private void RegistroCliente_Load_1(object sender, EventArgs e) { 
+            txt_idcliente.ReadOnly = true; 
+            configurarDataGridView();
+            txt_idcliente.Text = Persona.ObtenerSiguienteId().ToString();    
+
+
+        }
+        private void configurarDataGridView()
+        {
+            // Configura el DataGridView para mostrar los clientes de manera ordenada
             DGV_clientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // Ajusta el tamaño de las filas para mostrar todo el contenido
             DGV_clientes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             // Configura el DataGridView para que no se puedan editar las celdas ni agregar filas directamente
             DGV_clientes.ReadOnly = true;
             DGV_clientes.AllowUserToAddRows = false;
-            
         }
     }
 }

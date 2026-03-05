@@ -70,6 +70,7 @@
             this.comboBox_sucursal.Name = "comboBox_sucursal";
             this.comboBox_sucursal.Size = new System.Drawing.Size(147, 24);
             this.comboBox_sucursal.TabIndex = 24;
+            this.comboBox_sucursal.SelectedIndexChanged += new System.EventHandler(this.comboBox_sucursal_SelectedIndexChanged);
             // 
             // comboBox_Vehiculo
             // 

@@ -47,13 +47,14 @@ namespace AutoMarket.Consultas
             private void CargarSucursales()
             {
             comboBoxSucursal.DataSource = null;
+            // Crear una lista temporal para cargar las sucursales
             List<Sucursal> lista = new List<Sucursal>();
 
             for (int i = 0; i < Datos_Sucursal.contadorSucursal; i++)
             {
                 lista.Add(Datos_Sucursal.sucursales[i]);
             }
-
+            // Asignar la lista al ComboBox
             comboBoxSucursal.DataSource = lista;
             comboBoxSucursal.DisplayMember = "Nombre";
         } 

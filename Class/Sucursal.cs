@@ -18,6 +18,7 @@ namespace AutoMarket.Class
 {
     public class Sucursal
     {
+
       private static int idcontador = 1; //ID automatico
 
     //Propiedades de la clase Sucursal
@@ -27,15 +28,16 @@ namespace AutoMarket.Class
         public string Direccion { get; set; }
         public string Telefono { get; set; }
 
-        public Vendedor VendedorEncargado { get; set; }
+        public Vendedor VendedorEncargado { get; set; } // Relación con la clase Vendedor, cada sucursal
+                                                        // tiene un vendedor encargado
         public bool Activo { get; set; }
         //Constructor de la clase Sucursal para inicializar las propiedades
-        public Sucursal(int idSucursal, string nombre, string direccion, string telefono, Vendedor vendedorEncargado, bool activo)
+        public Sucursal( string nombre, string direccion, string telefono, Vendedor vendedorEncargado, bool activo)
         {
             if (string.IsNullOrWhiteSpace(nombre))
                 throw new ArgumentException("El nombre de la sucursal es obligatorio.");
+            IdSucursal = idcontador++;
 
-            IdSucursal = idSucursal++;         
            Nombre = nombre;
            Direccion = direccion;
            Telefono = telefono;
@@ -45,6 +47,10 @@ namespace AutoMarket.Class
         public override string ToString()
         {
             return Nombre;
+        }
+        public static int ObtenerSiguienteId()
+        {
+            return idcontador;
         }
 
 

@@ -43,58 +43,56 @@ namespace AutoMarket
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
-        {
+        {      
             try
-
-            {  if (Datos_Categorias.contador >= 20)
+            {
+                if (string.IsNullOrWhiteSpace(txt_nombre.Text) ||
+                    string.IsNullOrWhiteSpace(txt_descripcion.Text))
                 {
-                    MessageBox.Show("No se pueden registrar más de 20 categorías.");
+                    MessageBox.Show("Debe completar todos los campos.");
                     return;
                 }
-                // Validar campos vacíos
-                int id = int.Parse(txt_categoria.Text);
-                string nombre = txt_nombre.Text;
-                string descripcion = txt_descripcion.Text;
 
-                // Validar ID único
-                for (int i = 0; i < Datos_Categorias.contador; i++)
+                CategoriaVehiculo nueva = new CategoriaVehiculo(
+                    txt_nombre.Text.Trim(),
+                    txt_descripcion.Text.Trim()
+                );
+
+                if (!Datos_Categorias.Agregar(nueva))
                 {
-                    if (Datos_Categorias.categorias[i].IdCategoria == id)
-                    {
-                        MessageBox.Show("El ID ya existe.");
-                        return;
-                    }
+                    MessageBox.Show("No se puede registrar la categoría (límite alcanzado o nombre repetido).");
+                    return;
                 }
-                // Crear nueva categoría y agregar al arreglo
-                Datos_Categorias.categorias[Datos_Categorias.contador] = new CategoriaVehiculo(id, nombre, descripcion);
-                Datos_Categorias.contador++;
 
                 CargarGrid();
                 LimpiarCampos();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("El ID debe ser un número entero.");
+
+                txt_categoria.Text = CategoriaVehiculo.ObtenerSiguienteId().ToString();
+
+                MessageBox.Show("Categoría registrada correctamente.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
+        
         }
          
 
             private void LimpiarCampos()
-        { // Limpiar los campos de texto después de guardar
-            txt_categoria.Clear();
+            { // Limpiar los campos de texto después de guardar
+               
                 txt_nombre.Clear();
                 txt_descripcion.Clear();
-        }
+                txt_nombre.Focus();
+            }
+        
         
         private void CargarGrid()
         {   
             DGV_categorias.Rows.Clear();
             // Cargar las categorías registradas en el DataGridView
-            for (int i = 0; i < Datos_Categorias.contador; i++)
+          for (int i = 0; i < Datos_Categorias.TotalRegistros(); i++)
             {
                 DGV_categorias.Rows.Add(
                     Datos_Categorias.categorias[i].IdCategoria,
@@ -107,14 +105,26 @@ namespace AutoMarket
 
         private void RegistroCategoVehiculos_Load(object sender, EventArgs e)
         {
+            ConfigurarGrid();
+            txt_categoria.ReadOnly = true;
+            txt_categoria.Text = CategoriaVehiculo.ObtenerSiguienteId().ToString();
+            CargarGrid();
+
+        }
+        private void  ConfigurarGrid()
+        {
             // Ajuiste del GridView
             DGV_categorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_categorias.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DGV_categorias.ReadOnly = true;
             DGV_categorias.AllowUserToAddRows = false;
         }
-
         private void DGV_categorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_categoria_TextChanged(object sender, EventArgs e)
         {
 
         }

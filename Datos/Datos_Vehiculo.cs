@@ -22,8 +22,31 @@ namespace AutoMarket.Datos
         public static Vehiculo[] vehiculos = new Vehiculo[50];
         // Contador para llevar el número de vehículos almacenados
         public static int contadorVehiculos = 0;
+
+        public static bool Agregar(Vehiculo nuevo)
+        {
+            if (contadorVehiculos >= 50)
+                return false;
+
+            vehiculos[contadorVehiculos] = nuevo;
+            contadorVehiculos++;
+            return true;
+        }
+
+        public static int TotalRegistros()
+        {
+            return contadorVehiculos;
+        }
+
+        public static Vehiculo Obtener(int posicion)
+        {
+            if (posicion >= 0 && posicion < contadorVehiculos)
+                return vehiculos[posicion];
+
+            return null;
+        }
     }
-}
+ }
 
 
 

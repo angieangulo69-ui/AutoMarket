@@ -23,6 +23,36 @@ namespace AutoMarket.Datos
         public static Cliente[] clientes = new Cliente[5];
         // Contador para llevar el número de clientes almacenados
         public static int contadorClientes = 0;
+    
+     public static bool Agregar(Cliente nuevo)
+        {
+            if (contadorClientes >= 5)
+                return false;
+
+            // Validar identificación única
+            for (int i = 0; i < contadorClientes; i++)
+            {
+                if (clientes[i].Identificacion == nuevo.Identificacion)
+                    return false;
+            }
+
+            clientes[contadorClientes] = nuevo;
+            contadorClientes++;
+            return true;
+        }
+
+        public static int TotalRegistros()
+        {
+            return contadorClientes;
+        }
+
+        public static Cliente Obtener(int posicion)
+        {
+            if (posicion >= 0 && posicion < contadorClientes)
+                return clientes[posicion];
+
+            return null;
+        }
     }
-     
+
 }

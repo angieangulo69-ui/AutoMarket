@@ -55,7 +55,7 @@
             this.label1.ForeColor = System.Drawing.Color.Cyan;
             this.label1.Location = new System.Drawing.Point(56, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 36);
+            this.label1.Size = new System.Drawing.Size(163, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id Categoria:";
             // 
@@ -102,6 +102,7 @@
             this.txt_categoria.Name = "txt_categoria";
             this.txt_categoria.Size = new System.Drawing.Size(187, 22);
             this.txt_categoria.TabIndex = 4;
+            this.txt_categoria.TextChanged += new System.EventHandler(this.txt_categoria_TextChanged);
             // 
             // txt_descripcion
             // 

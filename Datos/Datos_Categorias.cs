@@ -23,5 +23,39 @@ namespace AutoMarket.Datos
         public static CategoriaVehiculo[] categorias = new CategoriaVehiculo[20];
         // Contador para llevar el número de categorías almacenadas
         public static int contador = 0;
+
+          public static bool Agregar(CategoriaVehiculo nueva)
+           {
+            if (contador >= 20)
+                return false;
+
+            // Validar nombre único
+            for (int i = 0; i < contador; i++)
+            {
+                if (categorias[i].NombreCategoria.ToLower() ==
+                    nueva.NombreCategoria.ToLower())
+                    return false;
+            }
+
+            categorias[contador] = nueva;
+            contador++;
+            return true;
+        }
+
+        public static int TotalRegistros()
+        {
+            return contador;
+        }
+
+        //buscar y devolver una categoría del arreglo según su posición.
+        public static CategoriaVehiculo Obtener(int posicion)
+        {
+            if (posicion >= 0 && posicion < contador)
+                return categorias[posicion];
+
+            return null;
+        }
     }
 }
+    
+

@@ -20,6 +20,30 @@ namespace AutoMarket.Datos
     { // Arreglo para almacenar sucursales
         public static Sucursal[] sucursales = new Sucursal[5];
         // Contador para llevar el número de sucursales almacenadas
-        public static int contadorSucursal = 0;
+
+       
+        public static int contadorSucursal = 0; // Se inicializa en 0, ya que no hay sucursales registradas al inicio
+        public static bool Agregar(Sucursal nueva)
+        { // Verificar si el contador ha alcanzado el límite del arreglo
+            if (contadorSucursal >= 5)
+                return false;
+
+            sucursales[contadorSucursal] = nueva;
+            contadorSucursal++;
+            return true;
+        }
+
+        public static int TotalRegistros()
+        {// Retorna el número total de sucursales registradas
+            return contadorSucursal;
+        }
+
+        public static Sucursal Obtener(int posicion)
+        {// Verificar si la posición es válida antes de acceder al arreglo
+            if (posicion >= 0 && posicion < contadorSucursal)
+                return sucursales[posicion];
+
+            return null;
+        }
     }
 }

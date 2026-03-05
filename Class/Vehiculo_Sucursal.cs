@@ -26,7 +26,7 @@ namespace AutoMarket.Class
         public int Cantidad { get; set; }
 
         public Vehiculo_Sucursal(Sucursal sucursal, Vehiculo vehiculo, int cantidad)
-        {
+        {   //valida que  no se usen sucursales inactivas y que la cantidad sea mayor que cero
             if (!sucursal.Activo)
                 throw new ArgumentException("No se pueden asociar vehículos a sucursales inactivas.");
 

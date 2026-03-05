@@ -17,8 +17,10 @@ using System.Threading.Tasks;
 namespace AutoMarket
 {
    public  class Vehiculo
-    { //Propiedades de la clase Vehiculo
-        public int IdVehiculo { get; set; }
+    {
+        private static int contadorId = 1;
+        //Propiedades de la clase Vehiculo
+        public int IdVehiculo { get; private set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int Anio { get; set; }
@@ -27,13 +29,13 @@ namespace AutoMarket
         public char Estado { get; set; }
 
         //Constructor de la clase Vehiculo para inicializar las propiedades, con validación para el estado
-        public Vehiculo(int id, string marca, string modelo, int anio,
+        public Vehiculo(string marca, string modelo, int anio,
                         decimal precio, CategoriaVehiculo categoria, char estado)
         {
             if (estado != 'N' && estado != 'U')
                 throw new ArgumentException("Estado inválido. Debe ser 'N' (Nuevo) o 'U' (Usado).");
 
-            IdVehiculo = id;
+            IdVehiculo = contadorId++;
             Marca = marca;
             Modelo = modelo;
             Anio = anio;
@@ -42,12 +44,18 @@ namespace AutoMarket
             Estado = estado;
         }
         //Sobrescribe el método ToString para mostrar la marca, modelo y año del vehículo
+        public static int ObtenerSiguienteId()
+        {
+            return contadorId;
+        }
+
         public override string ToString()
         {
             return Marca + " " + Modelo + " (" + Anio + ")";
         }
-
     }
 
 }
+
+
 

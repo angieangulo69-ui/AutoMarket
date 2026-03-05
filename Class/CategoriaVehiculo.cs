@@ -16,23 +16,33 @@ using System.Threading.Tasks;
 
 
 namespace AutoMarket.Class
-{
+{   
     public class CategoriaVehiculo
-    { //Propiedades de la clase
+    {
+          private static int contadorId = 1;
+
+        //atributos de la clase
         public int IdCategoria { get; set; }
         public string NombreCategoria { get; set; }
         public string Descripcion { get; set; }
 
-        public CategoriaVehiculo(int id, string nombre, string descripcion)
+        public CategoriaVehiculo( string nombre, string descripcion)
         {
             //Constructor de la clase
-            IdCategoria = id;
+            IdCategoria = contadorId++;
             NombreCategoria = nombre;
             Descripcion = descripcion;
         }
+        public static int ObtenerSiguienteId()
+        {
+            return contadorId;
+        }
+
         public override string ToString()
-        { //Sobrescribe el método ToString para mostrar el nombre y la descripción de la categoría
-            return NombreCategoria + " - " + Descripcion;
+        {
+            return NombreCategoria;
         }
     }
 }
+    
+

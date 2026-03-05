@@ -51,10 +51,11 @@ namespace AutoMarket.Consultas
             CargarSucursalesActivas();
             CargarVehiculos();
         }
-
+        // Carga solo las sucursales activas en el comboBox
         private void CargarSucursalesActivas()
         {
             comboBox_sucursal.DataSource = null;
+
             List<Sucursal> lista = new List<Sucursal>();
 
             for (int i = 0; i < Datos_Sucursal.contadorSucursal; i++)
@@ -69,6 +70,7 @@ namespace AutoMarket.Consultas
             comboBox_sucursal.DisplayMember = "Nombre";
         
         }
+        // Carga el DataGridView con las asociaciones actuales entre vehículos y sucursales
         private void CargarGrid()
         {
             dataGridViewSucrusal_Vehiculo.Rows.Clear();
@@ -83,7 +85,7 @@ namespace AutoMarket.Consultas
             }
 
         }
-
+        // Carga los vehículos registrados en el comboBox para asociar con las sucursales
         private void CargarVehiculos()
         {
             comboBox_Vehiculo.DataSource = null;
@@ -95,6 +97,8 @@ namespace AutoMarket.Consultas
             comboBox_Vehiculo.DataSource = lista;
             comboBox_Vehiculo.DisplayMember = "Modelo";
         }
+        // Configura el DataGridView para mostrar las asociaciones de manera clara
+        // y evitar modificaciones directas por parte del usuario
         private void ConfigurarGrid()
         {
             dataGridViewSucrusal_Vehiculo.AutoSizeColumnsMode =
@@ -103,7 +107,7 @@ namespace AutoMarket.Consultas
             dataGridViewSucrusal_Vehiculo.ReadOnly = true;
             dataGridViewSucrusal_Vehiculo.AllowUserToAddRows = false;
         }
-
+        // Maneja el evento de clic en el botón "Guardar" para asociar un vehículo a una sucursal
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             try
@@ -126,7 +130,7 @@ namespace AutoMarket.Consultas
 
                 Sucursal sucursal = (Sucursal)comboBox_sucursal.SelectedItem;
                 Vehiculo vehiculo = (Vehiculo)comboBox_Vehiculo.SelectedItem;
-
+                // Crea una nueva asociación entre el vehículo y la sucursal, y la guarda en Datos_VehiculosSucursal
                 Datos_VehiculosSucursal.registros[Datos_VehiculosSucursal.contador] =
                     new Vehiculo_Sucursal(sucursal, vehiculo, cantidad);
 
@@ -142,18 +146,23 @@ namespace AutoMarket.Consultas
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Regresar al Menú para volver a la ventana principal del menú
         private void button2_Click(object sender, EventArgs e)
         {
             //Llamo a la ventana principal del menu
             Form1 Menu = new Form1();
             Menu.Show();
         }
-
+        // Salir de la aplicación
         private void button1_Click(object sender, EventArgs e)
         {
             //Salir de la aplicacion
             Application.Exit();
+        }
+
+        private void comboBox_sucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
