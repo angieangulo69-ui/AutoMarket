@@ -17,7 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace AutoMarket.Class
+namespace Entidades
 {
     public class Vehiculo_Sucursal
     {

@@ -13,7 +13,7 @@ y filtrar los vehículos mostrados en el DataGridView.
 Estudiante: Angie Angulo Chacón 
 Fecha:22/02/2026
 */
-using AutoMarket.Datos;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +24,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoMarket.Consultas
+namespace AutoMarket.Presentacion 
 {
     public partial class Consulta_VehiculoSucursal : Form
     {
@@ -93,6 +93,7 @@ namespace AutoMarket.Consultas
             for (int i = 0; i < Datos_VehiculosSucursal.contador; i++)
             {
                 if (Datos_VehiculosSucursal.registros[i].Sucursal.IdSucursal == idSucursalSeleccionada)
+
                 {
                     var registro = Datos_VehiculosSucursal.registros[i];
 

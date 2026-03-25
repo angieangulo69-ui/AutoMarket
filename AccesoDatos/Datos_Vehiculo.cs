@@ -13,9 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMarket.Class;
+using Entidades;
 
-namespace AutoMarket.Datos
+
+namespace AccesoDatos
 {
     public static class Datos_Vehiculo
     {   // Arreglo de vehículos
@@ -23,28 +24,7 @@ namespace AutoMarket.Datos
         // Contador para llevar el número de vehículos almacenados
         public static int contadorVehiculos = 0;
 
-        public static bool Agregar(Vehiculo nuevo)
-        {
-            if (contadorVehiculos >= 50)
-                return false;
-
-            vehiculos[contadorVehiculos] = nuevo;
-            contadorVehiculos++;
-            return true;
-        }
-
-        public static int TotalRegistros()
-        {
-            return contadorVehiculos;
-        }
-
-        public static Vehiculo Obtener(int posicion)
-        {
-            if (posicion >= 0 && posicion < contadorVehiculos)
-                return vehiculos[posicion];
-
-            return null;
-        }
+        
     }
  }
 

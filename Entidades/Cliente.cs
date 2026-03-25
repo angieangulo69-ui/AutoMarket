@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoMarket.Class
+namespace Entidades
 {
     public class Cliente : Persona
     {    //Propiedades de la clase Cliente, heredando de Persona                 

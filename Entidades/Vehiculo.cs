@@ -7,14 +7,14 @@ marca, modelo, año, precio, categoría y estado (nuevo o usado).
 Estudiante: Angie Angulo Chacon 
 Fecha:22/02/2026
 */
-using AutoMarket.Class;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoMarket
+namespace Entidades
 {
    public  class Vehiculo
     {

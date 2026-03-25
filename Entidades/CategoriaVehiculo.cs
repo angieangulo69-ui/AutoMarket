@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace AutoMarket.Class
+namespace Entidades
 {   
     public class CategoriaVehiculo
     {
@@ -32,10 +32,6 @@ namespace AutoMarket.Class
             IdCategoria = contadorId++;
             NombreCategoria = nombre;
             Descripcion = descripcion;
-        }
-        public static int ObtenerSiguienteId()
-        {
-            return contadorId;
         }
 
         public override string ToString()

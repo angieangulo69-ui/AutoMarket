@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\Logica.csproj" />
+    <ProjectReference Include="..\Entidades\Entidades.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Asociar_VehiculoSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConsultaCateVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConsultaSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConsultaVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConsultaVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Consulta_VehiculoSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MenuRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistrarVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroCategoVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
